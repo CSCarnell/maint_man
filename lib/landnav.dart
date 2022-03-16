@@ -29,7 +29,7 @@ class _LandNavState extends State<LandNav> {
   }
 
   var questionText = [
-    'What TC covers Map Reading and Land Navigation?',
+    'What TC a covers Map Reading and Land Navigation?',
     'What is a map?',
     'What information does a map provide?',
     'Name some different types of maps',
@@ -175,98 +175,101 @@ class _LandNavState extends State<LandNav> {
         foregroundColor: Colors.black,
         backgroundColor: Colors.amber,
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.all(10.0),
-            constraints: BoxConstraints.expand(
-              height: Theme.of(context).textTheme.headline4!.fontSize! * 1.1 +
-                  200.0,
-            ),
-            padding: const EdgeInsets.all(8.0),
-            color: Colors.orangeAccent,
-            alignment: Alignment.center,
-            child: Text(questionText[questionNumber],
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4!
-                    .copyWith(color: Colors.white)),
-          ),
-          if (!showAnswer)
-            GestureDetector(
-              onTap: () {
-                showAnswer = true;
-              },
-              child: Container(
-                margin: const EdgeInsets.all(10.0),
-                transformAlignment: Alignment.bottomCenter,
-                constraints: BoxConstraints.expand(
-                  height:
-                      Theme.of(context).textTheme.headline4!.fontSize! * 1.1 +
-                          200.0,
-                ),
-                padding: const EdgeInsets.all(8.0),
-                color: Colors.orangeAccent,
-                alignment: Alignment.center,
-                child: Text('answer hidden',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4!
-                        .copyWith(color: Colors.black)),
-              ),
-            ),
-          if (showAnswer)
+      body: FittedBox(
+        fit: BoxFit.fill,
+        child: Column(
+          children: [
             Container(
-              margin: const EdgeInsets.all(10.0),
-              transformAlignment: Alignment.bottomCenter,
+              margin: EdgeInsets.all(1.0),
               constraints: BoxConstraints.expand(
-                height: Theme.of(context).textTheme.headline4!.fontSize! * 1 +
+                height: Theme.of(context).textTheme.headline4!.fontSize! * 1.1 +
                     200.0,
               ),
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(1.0),
               color: Colors.orangeAccent,
               alignment: Alignment.center,
-              child: Text(
-                questionAnswer[questionNumber],
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5!
-                    .copyWith(color: Colors.black),
-              ),
+              child: Text(questionText[questionNumber],
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline4!
+                      .copyWith(color: Colors.white)),
             ),
-          Row(
-            children: [
-              Expanded(
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.amber),
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.black),
+            if (!showAnswer)
+              GestureDetector(
+                onTap: () {
+                  showAnswer = true;
+                },
+                child: Container(
+                  margin: EdgeInsets.all(1.0),
+                  transformAlignment: Alignment.bottomCenter,
+                  constraints: BoxConstraints.expand(
+                    height:
+                        Theme.of(context).textTheme.headline4!.fontSize! * 1.1 +
+                            200.0,
                   ),
-                  onPressed: answerShow,
-
-                  // next question button
-                  child: Text('Show Answer'),
+                  padding: EdgeInsets.all(1.0),
+                  color: Colors.orangeAccent,
+                  alignment: Alignment.center,
+                  child: Text('answer hidden',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4!
+                          .copyWith(color: Colors.black)),
                 ),
               ),
-              Expanded(
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.amber),
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.black),
-                  ),
-                  onPressed: answerQuestion,
-
-                  // next question button
-                  child: Text('Next'),
+            if (showAnswer)
+              Container(
+                margin: EdgeInsets.all(1.0),
+                transformAlignment: Alignment.bottomCenter,
+                constraints: BoxConstraints.expand(
+                  height: Theme.of(context).textTheme.headline4!.fontSize! * 1 +
+                      200.0,
+                ),
+                padding: EdgeInsets.all(1.0),
+                color: Colors.orangeAccent,
+                alignment: Alignment.center,
+                child: Text(
+                  questionAnswer[questionNumber],
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline5!
+                      .copyWith(color: Colors.black),
                 ),
               ),
-            ],
-          ),
-        ],
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.amber),
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.black),
+                    ),
+                    onPressed: answerShow,
+
+                    // next question button
+                    child: Text('Show Answer'),
+                  ),
+                ),
+                Expanded(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.amber),
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.black),
+                    ),
+                    onPressed: answerQuestion,
+
+                    // next question button
+                    child: Text('Next'),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './pubsandformsstudy.dart';
 import './landnav.dart';
+import './firstaid.dart';
 
 class BoardStudyTopics extends StatelessWidget {
   const BoardStudyTopics({Key? key}) : super(key: key);
@@ -63,9 +64,19 @@ class BoardStudyTopics extends StatelessWidget {
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return FirstAid();
+                  },
+                ),
+              );
             },
-            child: Text('topic'),
+            child: FittedBox(
+              fit: BoxFit.fill,
+              child: Text('First Aid'),
+            ),
           ),
           ElevatedButton(
             style: ButtonStyle(

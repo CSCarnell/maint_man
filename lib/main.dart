@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:maint_man/ArmySong.dart';
+import 'package:maint_man/WarrantDef.dart';
 
 import './studytopics.dart';
 import './ACFTCalculator.dart';
+import './MDMP.dart';
+import './NCOcreed.dart';
+import './SoldierCreed.dart';
+import './BoardProcedures.dart';
+import './TLP.dart';
+import './APS.dart';
+import './Staffs.dart';
+import './OPORD.dart';
 
 void main() => runApp(MaterialApp(
       home: MyApp(),
@@ -98,7 +108,7 @@ class MyApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return BoardStudyTopics();
+                    return NCOcreed();
                   },
                 ),
               );
@@ -115,7 +125,7 @@ class MyApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return BoardStudyTopics();
+                    return SoldierCreed();
                   },
                 ),
               );
@@ -132,12 +142,12 @@ class MyApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return BoardStudyTopics();
+                    return WarrantDef();
                   },
                 ),
               );
             },
-            child: Text('Warrant Officer Definition'),
+            child: Text('WOCS Warrant Officer Definition'),
           ),
           ElevatedButton(
             style: ButtonStyle(
@@ -149,7 +159,7 @@ class MyApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return BoardStudyTopics();
+                    return ArmySong();
                   },
                 ),
               );
@@ -166,7 +176,7 @@ class MyApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return BoardStudyTopics();
+                    return BoardProcedures();
                   },
                 ),
               );
@@ -183,7 +193,7 @@ class MyApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return BoardStudyTopics();
+                    return OPORD();
                   },
                 ),
               );
@@ -200,12 +210,12 @@ class MyApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return BoardStudyTopics();
+                    return MDMP();
                   },
                 ),
               );
             },
-            child: Text('CONOP Example'),
+            child: Text('Military Decision Making Process'),
           ),
           ElevatedButton(
             style: ButtonStyle(
@@ -217,12 +227,97 @@ class MyApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return BoardStudyTopics();
+                    return TLP();
                   },
                 ),
               );
             },
-            child: Text('Leader\'s Book'),
+            child: Text('Troop Leading Procedures'),
+          ),
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return APS();
+                  },
+                ),
+              );
+            },
+            child: Text('Army Problem Solving'),
+          ),
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Staffs();
+                  },
+                ),
+              );
+            },
+            child: Text('Staff Sections'),
+          ),
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Staffs();
+                  },
+                ),
+              );
+            },
+            child: Text('UCMJ'),
+          ),
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Staffs();
+                  },
+                ),
+              );
+            },
+            child: Text('Holistic Health'),
+          ),
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Staffs();
+                  },
+                ),
+              );
+            },
+            child: Text('Leader Book'),
           ),
         ],
       ),

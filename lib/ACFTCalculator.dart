@@ -9,6 +9,7 @@ class ACFTCalc extends StatefulWidget {
   State<ACFTCalc> createState() => _ACFTCalcState();
 }
 
+//lots of work to do
 class _ACFTCalcState extends State<ACFTCalc> {
   int deadLift = 140;
   int deadLiftScore = 60;
@@ -952,9 +953,13 @@ class _ACFTCalcState extends State<ACFTCalc> {
                     );
                   }).toList(),
                 ),
-                Text(
-                  deadLiftScore.toString(),
-                  style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    deadLiftScore.toString(),
+                    style:
+                        TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
@@ -1036,9 +1041,13 @@ class _ACFTCalcState extends State<ACFTCalc> {
                     );
                   }).toList(),
                 ),
-                Text(
-                  throwScore.toString(),
-                  style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    throwScore.toString(),
+                    style:
+                        TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
