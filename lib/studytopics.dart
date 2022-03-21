@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import './pubsandformsstudy.dart';
 import './landnav.dart';
 import './firstaid.dart';
+import './adp1.dart';
+import './adp102.dart';
+import './adp2.dart';
 
 class BoardStudyTopics extends StatelessWidget {
   const BoardStudyTopics({Key? key}) : super(key: key);
@@ -84,9 +87,37 @@ class BoardStudyTopics extends StatelessWidget {
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ADP1();
+                  },
+                ),
+              );
             },
-            child: Text('topic'),
+            child: FittedBox(
+              fit: BoxFit.fill,
+              child: Text('ADP1 / ADRP1'),
+            ),
+          ),
+
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ADP102();
+                  },
+                ),
+              );
+            },
+            child: Text('ADP 1-02/ADRP 1-02'),
           ),
           ElevatedButton(
             style: ButtonStyle(
@@ -94,19 +125,16 @@ class BoardStudyTopics extends StatelessWidget {
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ADP20();
+                  },
+                ),
+              );
             },
-            child: Text('topic'),
-          ),
-          ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text('topic'),
+            child: Text('ADP 2-0/ADRP 2-0'),
           ),
           ElevatedButton(
             style: ButtonStyle(
