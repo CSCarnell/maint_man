@@ -69,61 +69,56 @@ class _FirstAidState extends State<FirstAid> {
       ),
       body: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.all(10.0),
-            constraints: BoxConstraints.expand(
-              height: Theme.of(context).textTheme.headline4!.fontSize! * 1.1 +
-                  200.0,
+          Flexible(
+            fit: FlexFit.tight,
+            child: Container(
+              margin: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(5.0),
+              color: Colors.orangeAccent,
+              alignment: Alignment.center,
+              child: Text(questionText[questionNumber],
+                  style: TextStyle(fontSize: 15)),
             ),
-            padding: const EdgeInsets.all(8.0),
-            color: Colors.orangeAccent,
-            alignment: Alignment.center,
-            child: Text(questionText[questionNumber],
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4!
-                    .copyWith(color: Colors.white)),
           ),
           if (!showAnswer)
-            GestureDetector(
-              onTap: () {
-                showAnswer = true;
-              },
-              child: Container(
-                margin: const EdgeInsets.all(10.0),
-                transformAlignment: Alignment.bottomCenter,
-                constraints: BoxConstraints.expand(
-                  height:
-                      Theme.of(context).textTheme.headline4!.fontSize! * 1.1 +
-                          200.0,
+            Flexible(
+              fit: FlexFit.tight,
+              child: GestureDetector(
+                onTap: () {
+                  answerShow();
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(5.0),
+                  transformAlignment: Alignment.bottomCenter,
+                  constraints: BoxConstraints.expand(
+                    height:
+                        Theme.of(context).textTheme.headline4!.fontSize! * .8 +
+                            200.0,
+                  ),
+                  padding: const EdgeInsets.all(5.0),
+                  color: Colors.orangeAccent,
+                  alignment: Alignment.center,
+                  child: Text('answer hidden, tap to show',
+                      style: TextStyle(fontSize: 15)),
                 ),
-                padding: const EdgeInsets.all(8.0),
-                color: Colors.orangeAccent,
-                alignment: Alignment.center,
-                child: Text('answer hidden',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4!
-                        .copyWith(color: Colors.black)),
               ),
             ),
           if (showAnswer)
-            Container(
-              margin: const EdgeInsets.all(10.0),
-              transformAlignment: Alignment.bottomCenter,
-              constraints: BoxConstraints.expand(
-                height: Theme.of(context).textTheme.headline4!.fontSize! * 1 +
-                    200.0,
-              ),
-              padding: const EdgeInsets.all(8.0),
-              color: Colors.orangeAccent,
-              alignment: Alignment.center,
-              child: Text(
-                questionAnswer[questionNumber],
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5!
-                    .copyWith(color: Colors.black),
+            Flexible(
+              fit: FlexFit.tight,
+              child: Container(
+                margin: const EdgeInsets.all(5.0),
+                transformAlignment: Alignment.bottomCenter,
+                padding: const EdgeInsets.all(5.0),
+                color: Colors.orangeAccent,
+                alignment: Alignment.center,
+                child: Flexible(
+                  fit: FlexFit.tight,
+                  child: Text(
+                    questionAnswer[questionNumber],
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ),
               ),
             ),
           Row(
@@ -139,7 +134,10 @@ class _FirstAidState extends State<FirstAid> {
                   onPressed: answerShow,
 
                   // next question button
-                  child: Text('Show Answer'),
+                  child: FittedBox(
+                    fit: BoxFit.fill,
+                    child: Text('Show Answer'),
+                  ),
                 ),
               ),
               Expanded(
@@ -153,7 +151,10 @@ class _FirstAidState extends State<FirstAid> {
                   onPressed: answerQuestion,
 
                   // next question button
-                  child: Text('Next'),
+                  child: FittedBox(
+                    fit: BoxFit.fill,
+                    child: Text('Next'),
+                  ),
                 ),
               ),
             ],

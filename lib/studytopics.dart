@@ -45,7 +45,7 @@ class BoardStudyTopics extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
-        crossAxisCount: 4,
+        crossAxisCount: 3,
         children: <Widget>[
           //pubs and forms
           ElevatedButton(

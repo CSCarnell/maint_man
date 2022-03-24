@@ -33,7 +33,7 @@ class _FM3229State extends State<FM3229> {
     'What are the four fundamentals of marksmanship?',
     'Is SPORTS an Immediate or Remedial Action?',
     'How many times should immediate action be applied to a weapon?',
-    'What are the 8 steps in the functioning of the M4rifle? ',
+    'What are the 8 steps in the functioning of the M4 rifle? ',
     'What are the steps required in order to mechanically zero the M4?',
     'What are the steps required in order to battle sight zero the M4?',
     'How do you clear a stoppage?',
@@ -70,54 +70,57 @@ class _FM3229State extends State<FM3229> {
       ),
       body: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.all(10.0),
-            constraints: BoxConstraints.expand(
-              height:
-                  Theme.of(context).textTheme.headline4!.fontSize! * .8 + 200.0,
-            ),
-            padding: const EdgeInsets.all(8.0),
-            color: Colors.orangeAccent,
-            alignment: Alignment.center,
-            child: Text(
-              questionText[questionNumber],
+          Flexible(
+            fit: FlexFit.tight,
+            child: Container(
+              margin: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(5.0),
+              color: Colors.orangeAccent,
+              alignment: Alignment.center,
+              child: Text(questionText[questionNumber],
+                  style: TextStyle(fontSize: 15)),
             ),
           ),
           if (!showAnswer)
-            GestureDetector(
-              onTap: () {
-                showAnswer = true;
-              },
-              child: Container(
-                margin: const EdgeInsets.all(10.0),
-                transformAlignment: Alignment.bottomCenter,
-                constraints: BoxConstraints.expand(
-                  height:
-                      Theme.of(context).textTheme.headline4!.fontSize! * .8 +
-                          200.0,
+            Flexible(
+              fit: FlexFit.tight,
+              child: GestureDetector(
+                onTap: () {
+                  answerShow();
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(5.0),
+                  transformAlignment: Alignment.bottomCenter,
+                  constraints: BoxConstraints.expand(
+                    height:
+                        Theme.of(context).textTheme.headline4!.fontSize! * .8 +
+                            200.0,
+                  ),
+                  padding: const EdgeInsets.all(5.0),
+                  color: Colors.orangeAccent,
+                  alignment: Alignment.center,
+                  child: Text('answer hidden, tap to show',
+                      style: TextStyle(fontSize: 15)),
                 ),
-                padding: const EdgeInsets.all(8.0),
-                color: Colors.orangeAccent,
-                alignment: Alignment.center,
-                child: Text('answer hidden',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4!
-                        .copyWith(color: Colors.black)),
               ),
             ),
           if (showAnswer)
-            Container(
-              margin: const EdgeInsets.all(10.0),
-              transformAlignment: Alignment.bottomCenter,
-              constraints: BoxConstraints.expand(
-                height: Theme.of(context).textTheme.headline4!.fontSize! * 1.1 +
-                    200.0,
+            Flexible(
+              fit: FlexFit.tight,
+              child: Container(
+                margin: const EdgeInsets.all(5.0),
+                transformAlignment: Alignment.bottomCenter,
+                padding: const EdgeInsets.all(5.0),
+                color: Colors.orangeAccent,
+                alignment: Alignment.center,
+                child: Flexible(
+                  fit: FlexFit.tight,
+                  child: Text(
+                    questionAnswer[questionNumber],
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ),
               ),
-              padding: const EdgeInsets.all(8.0),
-              color: Colors.orangeAccent,
-              alignment: Alignment.center,
-              child: Text(questionAnswer[questionNumber]),
             ),
           Row(
             children: [
@@ -132,7 +135,10 @@ class _FM3229State extends State<FM3229> {
                   onPressed: answerShow,
 
                   // next question button
-                  child: Text('Show Answer'),
+                  child: FittedBox(
+                    fit: BoxFit.fill,
+                    child: Text('Show Answer'),
+                  ),
                 ),
               ),
               Expanded(
@@ -146,7 +152,10 @@ class _FM3229State extends State<FM3229> {
                   onPressed: answerQuestion,
 
                   // next question button
-                  child: Text('Next'),
+                  child: FittedBox(
+                    fit: BoxFit.fill,
+                    child: Text('Next'),
+                  ),
                 ),
               ),
             ],
