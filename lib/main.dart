@@ -12,6 +12,7 @@ import './TLP.dart';
 import './APS.dart';
 import './Staffs.dart';
 import './OPORD.dart';
+import './ACFTCalcNew.dart';
 
 void main() => runApp(MaterialApp(
       home: MyApp(),
@@ -57,6 +58,23 @@ class MyApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
+                    return ACFTnew();
+                  },
+                ),
+              );
+            },
+            child: Text('ACFT New'),
+          ),
+          /* ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
                     return BoardStudyTopics();
                   },
                 ),
@@ -64,6 +82,7 @@ class MyApp extends StatelessWidget {
             },
             child: Text('Board Quiz'),
           ),
+          */
           ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
@@ -81,7 +100,7 @@ class MyApp extends StatelessWidget {
             },
             child: Text('ACFT Calculator'),
           ),
-          ElevatedButton(
+          /* ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
@@ -98,6 +117,7 @@ class MyApp extends StatelessWidget {
             },
             child: Text('Body Fat Calculator'),
           ),
+          */
           ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
@@ -268,7 +288,7 @@ class MyApp extends StatelessWidget {
             },
             child: Text('Staff Sections'),
           ),
-          ElevatedButton(
+          /* ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
@@ -285,7 +305,8 @@ class MyApp extends StatelessWidget {
             },
             child: Text('UCMJ'),
           ),
-          ElevatedButton(
+          */
+          /*  ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
@@ -299,10 +320,12 @@ class MyApp extends StatelessWidget {
                   },
                 ),
               );
-            },
+            }, 
+
             child: Text('Holistic Health'),
           ),
-          ElevatedButton(
+          */
+          /* ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
@@ -319,6 +342,7 @@ class MyApp extends StatelessWidget {
             },
             child: Text('Leader Book'),
           ),
+          */
         ],
       ),
     );
