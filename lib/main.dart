@@ -13,6 +13,7 @@ import './APS.dart';
 import './Staffs.dart';
 import './OPORD.dart';
 import './ACFTCalcNew.dart';
+import './submitquestion.dart';
 
 void main() => runApp(MaterialApp(
       home: MyApp(),
@@ -100,6 +101,23 @@ class MyApp extends StatelessWidget {
             },
             child: Text('ACFT Calculator'),
           ),*/
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return QSubmit();
+                  },
+                ),
+              );
+            },
+            child: Text('Submit Questions'),
+          ),
           /* ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
