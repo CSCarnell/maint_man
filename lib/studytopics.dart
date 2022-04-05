@@ -81,7 +81,7 @@ class BoardStudyTopics extends StatelessWidget {
                 ),
               );
             },
-            child: Text('Map Reading & Land Navigation'),
+            child: Text('Map Reading & Land Nav'),
           ),
           ElevatedButton(
             style: ButtonStyle(

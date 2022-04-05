@@ -4013,402 +4013,400 @@ class _ACFTnewState extends State<ACFTnew> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ACFT Calculator',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('ACFT Calculator asdf'),
-          centerTitle: true,
-          foregroundColor: Colors.black,
-          backgroundColor: Colors.amber,
-        ),
-        body: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
-              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ListTile(
-                  title: const Text('Male'),
-                  leading: Radio<Gender>(
-                    value: Gender.male,
-                    groupValue: _gender,
-                    onChanged: (Gender? value) {
-                      setState(() {
-                        _gender = value;
-                        calcDeadliftScore();
-                        calcThrowScore();
-                      });
-                    },
-                  ),
-                ),
-                ListTile(
-                  title: const Text('Female'),
-                  leading: Radio<Gender>(
-                    value: Gender.female,
-                    groupValue: _gender,
-                    onChanged: (Gender? value) {
-                      setState(() {
-                        _gender = value;
-                        calcDeadliftScore();
-                        calcThrowScore();
-                      });
-                    },
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'AGE',
-                      style: TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.bold),
-                    ),
-                    DropdownButton<String>(
-                      value: ageText,
-                      icon: const Icon(Icons.arrow_downward),
-                      elevation: 16,
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 40.0,
-                          fontWeight: FontWeight.bold),
-                      underline: Container(
-                        height: 2,
-                        color: Colors.black,
-                      ),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          ageText = newValue!;
-                          calcDeadliftScore();
-                          calcThrowScore();
-                          //calcTotalScore();
-                        });
-                      },
-                      items: <String>[
-                        '17-21',
-                        '22-26',
-                        '27-31',
-                        '32-36',
-                        '37-41',
-                        '42-46',
-                        '47-51',
-                        '52-56',
-                        '57-61',
-                        '62+'
-                      ].map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                    Text(ageText),
-                  ],
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  'Deadlift',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                ),
-                DropdownButton<int>(
-                  value: deadLift,
-                  icon: const Icon(Icons.arrow_downward),
-                  elevation: 16,
-                  style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 40.0,
-                      fontWeight: FontWeight.bold),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.black,
-                  ),
-                  onChanged: (int? newValue) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ACFT Calculator asdf'),
+        centerTitle: true,
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.amber,
+      ),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(
+            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ListTile(
+                title: const Text('Male'),
+                leading: Radio<Gender>(
+                  value: Gender.male,
+                  groupValue: _gender,
+                  onChanged: (Gender? value) {
                     setState(() {
-                      deadLift = newValue!;
+                      _gender = value;
                       calcDeadliftScore();
-
-                      //calcTotalScore();
-                    });
-                  },
-                  items: <int>[
-                    0,
-                    60,
-                    70,
-                    80,
-                    90,
-                    100,
-                    110,
-                    120,
-                    130,
-                    140,
-                    150,
-                    160,
-                    170,
-                    180,
-                    190,
-                    200,
-                    210,
-                    220,
-                    230,
-                    240,
-                    250,
-                    260,
-                    270,
-                    280,
-                    290,
-                    300,
-                    310,
-                    320,
-                    330,
-                    340
-                  ].map<DropdownMenuItem<int>>((int value) {
-                    return DropdownMenuItem<int>(
-                      value: value,
-                      child: Text(value.toString()),
-                    );
-                  }).toList(),
-                ),
-                Text(
-                  deadLiftScore.toString(),
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  'Throw   ',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                ),
-                DropdownButton<double>(
-                  value: throwDistance,
-                  icon: const Icon(Icons.arrow_downward),
-                  elevation: 16,
-                  style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 40.0,
-                      fontWeight: FontWeight.bold),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.black,
-                  ),
-                  onChanged: (double? newValue) {
-                    setState(() {
-                      throwDistance = newValue!;
                       calcThrowScore();
                     });
                   },
-                  items: <double>[
-                    3.4,
-                    3.5,
-                    3.6,
-                    3.7,
-                    3.8,
-                    3.9,
-                    4.0,
-                    4.1,
-                    4.2,
-                    4.3,
-                    4.4,
-                    4.5,
-                    4.6,
-                    4.7,
-                    4.8,
-                    4.9,
-                    5.0,
-                    5.1,
-                    5.2,
-                    5.3,
-                    5.4,
-                    5.5,
-                    5.6,
-                    5.7,
-                    5.8,
-                    5.9,
-                    6.0,
-                    6.1,
-                    6.2,
-                    6.3,
-                    6.4,
-                    6.5,
-                    6.6,
-                    6.7,
-                    6.8,
-                    6.9,
-                    7.0,
-                    7.1,
-                    7.2,
-                    7.3,
-                    7.4,
-                    7.5,
-                    7.6,
-                    7.7,
-                    7.8,
-                    7.9,
-                    8.0,
-                    8.1,
-                    8.2,
-                    8.3,
-                    8.4,
-                    8.5,
-                    8.6,
-                    8.7,
-                    8.8,
-                    8.9,
-                    9.0,
-                    9.1,
-                    9.2,
-                    9.3,
-                    9.4,
-                    9.5,
-                    9.6,
-                    9.7,
-                    9.8,
-                    9.9,
-                    10.0,
-                    10.1,
-                    10.2,
-                    10.3,
-                    10.4,
-                    10.5,
-                    10.6,
-                    10.7,
-                    10.8,
-                    10.9,
-                    11.0,
-                    11.1,
-                    11.2,
-                    11.3,
-                    11.4,
-                    11.5,
-                    11.6,
-                    11.7,
-                    11.8,
-                    12.0,
-                    12.1,
-                    12.2,
-                    12.4,
-                    12.5,
-                    12.6,
-                    12.8,
-                    12.9,
-                    13.0,
-                    13.1
-                  ].map<DropdownMenuItem<double>>((double value) {
-                    return DropdownMenuItem<double>(
-                      value: value,
-                      child: Text(value.toString()),
-                    );
-                  }).toList(),
                 ),
-                Text(
-                  throwScore.toString(),
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  'Pushup',
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                ),
-                DropdownButton<int>(
-                  value: pushup,
-                  icon: const Icon(Icons.arrow_downward),
-                  elevation: 16,
-                  style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 40.0,
-                      fontWeight: FontWeight.bold),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.black,
-                  ),
-                  onChanged: (int? newValue) {
+              ),
+              ListTile(
+                title: const Text('Female'),
+                leading: Radio<Gender>(
+                  value: Gender.female,
+                  groupValue: _gender,
+                  onChanged: (Gender? value) {
                     setState(() {
-                      pushup = newValue!;
-                      calcPushupScore();
-
-                      //calcTotalScore();
+                      _gender = value;
+                      calcDeadliftScore();
+                      calcThrowScore();
                     });
                   },
-                  items: <int>[
-                    10,
-                    11,
-                    12,
-                    13,
-                    14,
-                    15,
-                    16,
-                    17,
-                    18,
-                    19,
-                    20,
-                    21,
-                    22,
-                    23,
-                    24,
-                    25,
-                    26,
-                    27,
-                    28,
-                    29,
-                    30,
-                    31,
-                    32,
-                    33,
-                    34,
-                    35,
-                    36,
-                    37,
-                    38,
-                    39,
-                    40,
-                    41,
-                    42,
-                    43,
-                    44,
-                    45,
-                    46,
-                    47,
-                    48,
-                    49,
-                    50,
-                    51,
-                    52,
-                    53,
-                    54,
-                    55,
-                    56,
-                    57,
-                    58,
-                    59,
-                    60,
-                    61,
-                    62,
-                  ].map<DropdownMenuItem<int>>((int value) {
-                    return DropdownMenuItem<int>(
-                      value: value,
-                      child: Text(value.toString()),
-                    );
-                  }).toList(),
                 ),
-                Text(
-                  pushupScore.toString(),
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    'AGE',
+                    style:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  ),
+                  DropdownButton<String>(
+                    value: ageText,
+                    icon: const Icon(Icons.arrow_downward),
+                    elevation: 16,
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 40.0,
+                        fontWeight: FontWeight.bold),
+                    underline: Container(
+                      height: 2,
+                      color: Colors.black,
+                    ),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        ageText = newValue!;
+                        calcDeadliftScore();
+                        calcThrowScore();
+                        //calcTotalScore();
+                      });
+                    },
+                    items: <String>[
+                      '17-21',
+                      '22-26',
+                      '27-31',
+                      '32-36',
+                      '37-41',
+                      '42-46',
+                      '47-51',
+                      '52-56',
+                      '57-61',
+                      '62+'
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
+                  Text(ageText),
+                ],
+              )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                'Deadlift',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+              DropdownButton<int>(
+                value: deadLift,
+                icon: const Icon(Icons.arrow_downward),
+                elevation: 16,
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold),
+                underline: Container(
+                  height: 2,
+                  color: Colors.black,
                 ),
-              ],
-            ),
-          ],
-        ),
+                onChanged: (int? newValue) {
+                  setState(() {
+                    deadLift = newValue!;
+                    calcDeadliftScore();
+
+                    //calcTotalScore();
+                  });
+                },
+                items: <int>[
+                  0,
+                  60,
+                  70,
+                  80,
+                  90,
+                  100,
+                  110,
+                  120,
+                  130,
+                  140,
+                  150,
+                  160,
+                  170,
+                  180,
+                  190,
+                  200,
+                  210,
+                  220,
+                  230,
+                  240,
+                  250,
+                  260,
+                  270,
+                  280,
+                  290,
+                  300,
+                  310,
+                  320,
+                  330,
+                  340
+                ].map<DropdownMenuItem<int>>((int value) {
+                  return DropdownMenuItem<int>(
+                    value: value,
+                    child: Text(value.toString()),
+                  );
+                }).toList(),
+              ),
+              Text(
+                deadLiftScore.toString(),
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                'Throw   ',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+              DropdownButton<double>(
+                value: throwDistance,
+                icon: const Icon(Icons.arrow_downward),
+                elevation: 16,
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold),
+                underline: Container(
+                  height: 2,
+                  color: Colors.black,
+                ),
+                onChanged: (double? newValue) {
+                  setState(() {
+                    throwDistance = newValue!;
+                    calcThrowScore();
+                  });
+                },
+                items: <double>[
+                  3.4,
+                  3.5,
+                  3.6,
+                  3.7,
+                  3.8,
+                  3.9,
+                  4.0,
+                  4.1,
+                  4.2,
+                  4.3,
+                  4.4,
+                  4.5,
+                  4.6,
+                  4.7,
+                  4.8,
+                  4.9,
+                  5.0,
+                  5.1,
+                  5.2,
+                  5.3,
+                  5.4,
+                  5.5,
+                  5.6,
+                  5.7,
+                  5.8,
+                  5.9,
+                  6.0,
+                  6.1,
+                  6.2,
+                  6.3,
+                  6.4,
+                  6.5,
+                  6.6,
+                  6.7,
+                  6.8,
+                  6.9,
+                  7.0,
+                  7.1,
+                  7.2,
+                  7.3,
+                  7.4,
+                  7.5,
+                  7.6,
+                  7.7,
+                  7.8,
+                  7.9,
+                  8.0,
+                  8.1,
+                  8.2,
+                  8.3,
+                  8.4,
+                  8.5,
+                  8.6,
+                  8.7,
+                  8.8,
+                  8.9,
+                  9.0,
+                  9.1,
+                  9.2,
+                  9.3,
+                  9.4,
+                  9.5,
+                  9.6,
+                  9.7,
+                  9.8,
+                  9.9,
+                  10.0,
+                  10.1,
+                  10.2,
+                  10.3,
+                  10.4,
+                  10.5,
+                  10.6,
+                  10.7,
+                  10.8,
+                  10.9,
+                  11.0,
+                  11.1,
+                  11.2,
+                  11.3,
+                  11.4,
+                  11.5,
+                  11.6,
+                  11.7,
+                  11.8,
+                  12.0,
+                  12.1,
+                  12.2,
+                  12.4,
+                  12.5,
+                  12.6,
+                  12.8,
+                  12.9,
+                  13.0,
+                  13.1
+                ].map<DropdownMenuItem<double>>((double value) {
+                  return DropdownMenuItem<double>(
+                    value: value,
+                    child: Text(value.toString()),
+                  );
+                }).toList(),
+              ),
+              Text(
+                throwScore.toString(),
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                'Pushup',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+              DropdownButton<int>(
+                value: pushup,
+                icon: const Icon(Icons.arrow_downward),
+                elevation: 16,
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold),
+                underline: Container(
+                  height: 2,
+                  color: Colors.black,
+                ),
+                onChanged: (int? newValue) {
+                  setState(() {
+                    pushup = newValue!;
+                    calcPushupScore();
+
+                    //calcTotalScore();
+                  });
+                },
+                items: <int>[
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52,
+                  53,
+                  54,
+                  55,
+                  56,
+                  57,
+                  58,
+                  59,
+                  60,
+                  61,
+                  62,
+                ].map<DropdownMenuItem<int>>((int value) {
+                  return DropdownMenuItem<int>(
+                    value: value,
+                    child: Text(value.toString()),
+                  );
+                }).toList(),
+              ),
+              Text(
+                pushupScore.toString(),
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ],
       ),
+      // ),
     );
   }
 }

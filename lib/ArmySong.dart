@@ -12,7 +12,7 @@ class _ArmySongState extends State<ArmySong> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('NCO Creed'),
+        title: Text('Army Song'),
         centerTitle: true,
         foregroundColor: Colors.black,
         backgroundColor: Colors.amber,

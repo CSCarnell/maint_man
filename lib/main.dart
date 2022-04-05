@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
             },
             child: Text('Board Study'),
           ),
-          ElevatedButton(
+          /*  ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
               );
             },
             child: Text('ACFT New'),
-          ),
+          ),*/
           /* ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
@@ -83,7 +83,7 @@ class MyApp extends StatelessWidget {
             child: Text('Board Quiz'),
           ),
           */
-          ElevatedButton(
+          /* ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
@@ -99,7 +99,7 @@ class MyApp extends StatelessWidget {
               );
             },
             child: Text('ACFT Calculator'),
-          ),
+          ),*/
           /* ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
