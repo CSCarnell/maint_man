@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.WhatIfGames.maint_man">
+    package="com.WhatIfGames.soldier_kit_bag">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="maint_man"
+        android:label="Soldier Kit Bag"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

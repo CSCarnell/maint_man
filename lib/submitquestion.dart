@@ -53,7 +53,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 hintText:
                     'Help build a database of relevant questions. Submit all questions you remember from your board appearance, this will help build weights for certain questions. ',
               ),
-              maxLines: 10,
+              maxLines: 6,
               textInputAction: TextInputAction.newline,
               validator: (String? questionValue) {
                 if (questionValue == null || questionValue.isEmpty) {
@@ -71,6 +71,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
                   if (_formKey.currentState!.validate()) {
                     submitQuestion(_urlController.text);
+                    Scaffold.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Submission Received, Thank you!'),
+                      ),
+                    );
                   }
                 },
                 child: const Text('Submit'),

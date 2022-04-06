@@ -17,6 +17,7 @@ import './submitquestion.dart';
 
 void main() => runApp(MaterialApp(
       home: MyApp(),
+      debugShowCheckedModeBanner: false,
     ));
 
 // need a class, this one extends StatelessWidget from material.dart
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Soldier Kit Bag'),
+        title: const Text('Soldier Kit Bag'),
         centerTitle: true,
         foregroundColor: Colors.black,
         backgroundColor: Colors.amber,
@@ -101,6 +102,23 @@ class MyApp extends StatelessWidget {
             },
             child: Text('ACFT Calculator'),
           ),*/
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return QSubmit();
+                  },
+                ),
+              );
+            },
+            child: Text('Submit Questions'),
+          ),
           ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
