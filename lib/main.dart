@@ -14,6 +14,8 @@ import './Staffs.dart';
 import './OPORD.dart';
 import './ACFTCalcNew.dart';
 import './submitquestion.dart';
+import './suggestions.dart';
+import './screens/topics_screen.dart';
 
 void main() => runApp(MaterialApp(
       home: MyApp(),
@@ -129,12 +131,29 @@ class MyApp extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return QSubmit();
+                    return Suggestions();
                   },
                 ),
               );
             },
-            child: Text('Submit Questions'),
+            child: Text('Submit Suggestions/Corrections'),
+          ),
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return TopicsScreen();
+                  },
+                ),
+              );
+            },
+            child: Text('Soldier Forums'),
           ),
           /* ElevatedButton(
             style: ButtonStyle(
