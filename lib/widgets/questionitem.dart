@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import '../screens/topic_screen.dart';
 
-class TopicItem extends StatelessWidget {
+class QuestionItem extends StatelessWidget {
   final String id;
   final String title;
   final int replies;
   final String question;
 
-  TopicItem(
+  QuestionItem(
     this.id,
     this.title,
     this.replies,
@@ -23,7 +23,7 @@ class TopicItem extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return TopicScreen(title, question);
+              return TopicScreen(question);
             },
           ),
         );
