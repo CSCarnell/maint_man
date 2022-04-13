@@ -104,7 +104,7 @@ class _StaffsState extends State<Staffs> {
                   margin: const EdgeInsets.all(1.0),
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'G-9/S-9 Civil Affairs Operations - ) is the principal staff officer responsible for all matters concerning civil affairs. The G-9 (S-9) establishes the civil-military operations center, evaluates civil considerations during mission analysis, and prepares the groundwork for transitioning the area of operations from military to civilian control. The G-9 (S-9) advises the commander on the military’s effect on civilians in the area of operations, relative to the complex relationship of these people with the terrain and institutions over time.',
+                    'G-9/S-9 Civil Affairs Operations - is the principal staff officer responsible for all matters concerning civil affairs. The G-9 (S-9) establishes the civil-military operations center, evaluates civil considerations during mission analysis, and prepares the groundwork for transitioning the area of operations from military to civilian control. The G-9 (S-9) advises the commander on the military’s effect on civilians in the area of operations, relative to the complex relationship of these people with the terrain and institutions over time.',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),

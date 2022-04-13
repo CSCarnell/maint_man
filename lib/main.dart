@@ -138,7 +138,7 @@ class MyApp extends StatelessWidget {
             },
             child: Text('Submit Suggestions/Corrections'),
           ),
-          ElevatedButton(
+          /*  ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
@@ -154,7 +154,7 @@ class MyApp extends StatelessWidget {
               );
             },
             child: Text('Soldier Forums'),
-          ),
+          ),*/
           /* ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),

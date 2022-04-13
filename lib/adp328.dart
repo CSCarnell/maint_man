@@ -24,6 +24,25 @@ class _ADP328State extends State<ADP328> {
     });
   }
 
+  void questionSwipeForward() {
+    setState(() {
+      if (questionNumber >= questionText.length - 1) {
+        questionNumber = 0;
+      } else {
+        questionNumber += 1;
+      }
+    });
+  }
+
+  void questionSwipeBack() {
+    setState(() {
+      if (questionNumber == 0) {
+        questionNumber = questionText.length - 1;
+      } else
+        questionNumber -= 1;
+    });
+  }
+
   void answerShow() {
     setState(() {
       showAnswer = true;
@@ -62,99 +81,111 @@ class _ADP328State extends State<ADP328> {
         foregroundColor: Colors.black,
         backgroundColor: Colors.amber,
       ),
-      body: Column(
-        children: [
-          Flexible(
-            fit: FlexFit.tight,
-            child: Container(
-              margin: const EdgeInsets.all(5.0),
-              padding: const EdgeInsets.all(5.0),
-              color: Colors.orangeAccent,
-              alignment: Alignment.center,
-              child: Text(questionText[questionNumber],
-                  style: TextStyle(fontSize: 15)),
-            ),
-          ),
-          if (!showAnswer)
-            Flexible(
-              fit: FlexFit.tight,
-              child: GestureDetector(
-                onTap: () {
-                  answerShow();
-                },
+      body: SizedBox.expand(
+        child: GestureDetector(
+          onHorizontalDragEnd: (DragEndDetails details) {
+            if (details.primaryVelocity! > 0) {
+              questionSwipeBack();
+            } else if (details.primaryVelocity! < 0) {
+              questionSwipeForward();
+            }
+          },
+          child: Column(
+            children: [
+              Flexible(
+                fit: FlexFit.tight,
                 child: Container(
                   margin: const EdgeInsets.all(5.0),
-                  transformAlignment: Alignment.bottomCenter,
-                  constraints: BoxConstraints.expand(
-                    height:
-                        Theme.of(context).textTheme.headline4!.fontSize! * .8 +
-                            200.0,
-                  ),
                   padding: const EdgeInsets.all(5.0),
                   color: Colors.orangeAccent,
                   alignment: Alignment.center,
-                  child: Text('answer hidden, tap to show',
+                  child: Text(questionText[questionNumber],
                       style: TextStyle(fontSize: 15)),
                 ),
               ),
-            ),
-          if (showAnswer)
-            Flexible(
-              fit: FlexFit.tight,
-              child: Container(
-                margin: const EdgeInsets.all(5.0),
-                transformAlignment: Alignment.bottomCenter,
-                padding: const EdgeInsets.all(5.0),
-                color: Colors.orangeAccent,
-                alignment: Alignment.center,
-                child: Flexible(
+              if (!showAnswer)
+                Flexible(
                   fit: FlexFit.tight,
-                  child: Text(
-                    questionAnswer[questionNumber],
-                    style: TextStyle(fontSize: 15),
+                  child: GestureDetector(
+                    onTap: () {
+                      answerShow();
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.all(5.0),
+                      transformAlignment: Alignment.bottomCenter,
+                      constraints: BoxConstraints.expand(
+                        height:
+                            Theme.of(context).textTheme.headline4!.fontSize! *
+                                    .8 +
+                                200.0,
+                      ),
+                      padding: const EdgeInsets.all(5.0),
+                      color: Colors.orangeAccent,
+                      alignment: Alignment.center,
+                      child: Text('answer hidden, tap to show',
+                          style: TextStyle(fontSize: 15)),
+                    ),
                   ),
                 ),
-              ),
-            ),
-          Row(
-            children: [
-              Expanded(
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.amber),
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.black),
+              if (showAnswer)
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: Container(
+                    margin: const EdgeInsets.all(5.0),
+                    transformAlignment: Alignment.bottomCenter,
+                    padding: const EdgeInsets.all(5.0),
+                    color: Colors.orangeAccent,
+                    alignment: Alignment.center,
+                    child: Flexible(
+                      fit: FlexFit.tight,
+                      child: Text(
+                        questionAnswer[questionNumber],
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
                   ),
-                  onPressed: answerShow,
+                ),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.amber),
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.black),
+                      ),
+                      onPressed: answerShow,
 
-                  // next question button
-                  child: FittedBox(
-                    fit: BoxFit.fill,
-                    child: Text('Show Answer'),
+                      // next question button
+                      child: FittedBox(
+                        fit: BoxFit.fill,
+                        child: Text('Show Answer'),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Expanded(
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.amber),
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.black),
-                  ),
-                  onPressed: answerQuestion,
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.amber),
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.black),
+                      ),
+                      onPressed: answerQuestion,
 
-                  // next question button
-                  child: FittedBox(
-                    fit: BoxFit.fill,
-                    child: Text('Next'),
+                      // next question button
+                      child: FittedBox(
+                        fit: BoxFit.fill,
+                        child: Text('Next'),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
