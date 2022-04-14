@@ -28,6 +28,7 @@ class _FM3229State extends State<FM3229> {
         questionNumber = 0;
       } else {
         questionNumber += 1;
+        showAnswer = false;
       }
     });
   }
@@ -38,6 +39,7 @@ class _FM3229State extends State<FM3229> {
         questionNumber = questionText.length - 1;
       } else
         questionNumber -= 1;
+      showAnswer = false;
     });
   }
 

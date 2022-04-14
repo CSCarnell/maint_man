@@ -28,6 +28,7 @@ class _ADP6State extends State<ADP6> {
         questionNumber = 0;
       } else {
         questionNumber += 1;
+        showAnswer = false;
       }
     });
   }
@@ -38,6 +39,7 @@ class _ADP6State extends State<ADP6> {
         questionNumber = questionText.length - 1;
       } else
         questionNumber -= 1;
+      showAnswer = false;
     });
   }
 

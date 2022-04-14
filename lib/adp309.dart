@@ -30,6 +30,7 @@ class _ADP309State extends State<ADP309> {
         questionNumber = 0;
       } else {
         questionNumber += 1;
+        showAnswer = false;
       }
     });
   }
@@ -40,6 +41,7 @@ class _ADP309State extends State<ADP309> {
         questionNumber = questionText.length - 1;
       } else
         questionNumber -= 1;
+      showAnswer = false;
     });
   }
 

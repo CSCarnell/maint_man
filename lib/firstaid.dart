@@ -28,6 +28,7 @@ class _FirstAidState extends State<FirstAid> {
         questionNumber = 0;
       } else {
         questionNumber += 1;
+        showAnswer = false;
       }
     });
   }
@@ -38,6 +39,7 @@ class _FirstAidState extends State<FirstAid> {
         questionNumber = questionText.length - 1;
       } else
         questionNumber -= 1;
+      showAnswer = false;
     });
   }
 

@@ -28,6 +28,7 @@ class _PubsandFormsStudyState extends State<PubsandFormsStudy> {
         questionNumber = 0;
       } else {
         questionNumber += 1;
+        showAnswer = false;
       }
     });
   }
@@ -38,6 +39,7 @@ class _PubsandFormsStudyState extends State<PubsandFormsStudy> {
         questionNumber = questionText.length - 1;
       } else
         questionNumber -= 1;
+      showAnswer = false;
     });
   }
 
