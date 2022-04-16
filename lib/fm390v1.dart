@@ -105,9 +105,12 @@ class _FM390State extends State<FM390> {
             }
           },
           child: Column(
-            children: [
-              Flexible(
-                fit: FlexFit.tight,
+            children: <Widget>[
+              //  height: (MediaQuery.of(context).size.height),
+              // width: (MediaQuery.of(context).size.width),
+
+              Expanded(
+                flex: 50,
                 child: Container(
                   margin: const EdgeInsets.all(5.0),
                   padding: const EdgeInsets.all(5.0),
@@ -118,8 +121,8 @@ class _FM390State extends State<FM390> {
                 ),
               ),
               if (!showAnswer)
-                Flexible(
-                  fit: FlexFit.tight,
+                Expanded(
+                  flex: 40,
                   child: GestureDetector(
                     onTap: () {
                       answerShow();
@@ -141,24 +144,23 @@ class _FM390State extends State<FM390> {
                     ),
                   ),
                 ),
+
               if (showAnswer)
-                Flexible(
-                  fit: FlexFit.tight,
+                Expanded(
+                  flex: 40,
                   child: Container(
                     margin: const EdgeInsets.all(5.0),
                     transformAlignment: Alignment.bottomCenter,
                     padding: const EdgeInsets.all(5.0),
                     color: Colors.orangeAccent,
                     alignment: Alignment.center,
-                    child: Flexible(
-                      fit: FlexFit.tight,
-                      child: Text(
-                        questionAnswer[questionNumber],
-                        style: TextStyle(fontSize: 15),
-                      ),
+                    child: Text(
+                      questionAnswer[questionNumber],
+                      style: TextStyle(fontSize: 15),
                     ),
                   ),
                 ),
+
               Row(
                 children: [
                   Expanded(
